@@ -1,0 +1,8 @@
+ClientAliveInterval 3000
+ClientAliveCountMax 10
+HostbasedAuthentication no
+PermitRootLogin no
+PermitEmptyPasswords no
+Protocol 2
+Banner /etc/issue
+Ciphers aes256-cbc,blowfish-cbc
