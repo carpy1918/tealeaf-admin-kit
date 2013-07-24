@@ -1,4 +1,0 @@
-#@faculty        hard    nproc           50
-ftp             hard    nproc           0
-@student        -       maxlogins       5
-blah		soft	maxlogins	2

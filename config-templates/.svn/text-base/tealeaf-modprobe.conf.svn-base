@@ -1,3 +1,0 @@
-install ipv6 /bin/true
-install dccp /bin/true
-install sctp /bin/true
