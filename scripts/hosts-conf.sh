@@ -19,9 +19,9 @@ if [ -f $CONF ]; then
     
     if grep -E $name $CONF > /dev/null
     then 
-      echo -e "$name  $ip found in $CONF"
+      prt -e "$name  $ip found in $CONF"
     else
-      echo -e "$name NOT found in $CONF"
+      prt -e "$name NOT found in $CONF"
       if [ "$MODE" = "EXECUTE" ]; then
         echo -e "$ip   $name" >> $CONF
       fi
@@ -30,6 +30,6 @@ if [ -f $CONF ]; then
  done #end for
 
 else
-  echo -e "WARN: $CONF does not exist - `hostname`"
+  prt -e "WARN: $CONF does not exist - `hostname`"
 fi 
 
