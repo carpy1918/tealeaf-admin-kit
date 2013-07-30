@@ -60,3 +60,22 @@ HOME=/home/curt/tealeaf-svn/scripts/
 1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/gcc-check.sh
 1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/iptables-check.sh
 
+#redhat log monitors
+#01 17 * * * /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/messages
+#01 17 * * * /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/secure
+#01 17 * * * /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/cron
+#01 17 * * * /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/maillog
+#01 17 * * * /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/dmesg
+
+#debian log monitors
+#01 17 * * * /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/messages
+#01 17 * * * /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/syslog
+#01 17 * * * /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/user.log
+#01 17 * * * /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/kern.log
+#01 17 * * * /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/daemon.log
+#01 17 * * * /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/debug
+#01 17 * * * /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/auth.log
+#01 17 * * * /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/dmesg
+#01 17 * * * /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/mail.log
+#01 17 * * * /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/mail.err
+
