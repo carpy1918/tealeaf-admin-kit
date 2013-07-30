@@ -3,55 +3,60 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin:/home/curt/tealeaf-svn/scripts/:/home/curt/te
 MAILTO=curtis@carpy.net
 HOME=/home/curt/tealeaf-svn/scripts/
 
-00 05 * * * svn update tealeaf-svn/	  
+#00 05 * * * svn update tealeaf-svn/	  
 
-01 05 * * *  /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/messages
-01 05 * * *  /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/secure
-01 05 * * *  /home/curt/tealeaf-svn/scripts/user-management-master.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/file-size-monitor.sh /var/spool/mail/ 5192 
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/hosts-conf.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/inittab-conf.sh
-01 05 * * *  /home/curt/tealeaf-svn/scripts/monitor-partition.sh
-01 05 * * *  /home/curt/tealeaf-svn/scripts/profile-setup.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/resolv-conf.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/log-auditing.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/messages
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/error-parse-log.sh /var/log/secure
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/user-management-master.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/file-size-monitor.sh /var/spool/mail/ 5192
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/hosts-conf.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/inittab-conf.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/monitor-partition.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/profile-setup.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/resolv-conf.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/log-auditing.sh
 
-01 05 * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/aide.conf /home/curt/tealeaf-svn/config-templates/aide-mod
-01 05 * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/audit/auditd.conf /home/curt/tealeaf-svn/config-templates/auditd-mod
-01 05 * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/audit/audit.rules /home/curt/tealeaf-svn/config-templates/audit.rules-mod
-01 05 * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/issue /home/curt/tealeaf-svn/config-templates/issue-mod
-01 05 * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/security/limits.conf /home/curt/tealeaf-svn/config-templates/limits-mod.conf
-01 05 * * *  /home/curt/tealeaf-svn/scripts/config-edit-equal.pl /etc/selinux/config /home/curt/tealeaf-svn/config-templates/selinux-config-mod
-01 05 * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/login.defs /home/curt/tealeaf-svn/config-templates/login.defs-mod
-01 05 * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/pam.d/system-auth /home/curt/tealeaf-svn/config-templates/system-auth-mod
-01 05 * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/pam.d/system-auth /home/curt/tealeaf-svn/config-templates/system-auth-mod
-01 05 * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/ssh/sshd_config /home/curt/tealeaf-svn/config-templates/sshd_config-mod
-01 05 * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/modprobe.conf /home/curt/tealeaf-svn/config-templates/modprobe-mod
-01 05 * * *  /home/curt/tealeaf-svn/scripts/config-edit-equal.pl /etc/sysctl.conf /home/curt/tealeaf-svn/config-templates/sysctl-mod
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/aide.conf /home/curt/tealeaf-svn/config-templates/aide-mod
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/audit/auditd.conf /home/curt/tealeaf-svn/config-templates/auditd-mod
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/audit/audit.rules /home/curt/tealeaf-svn/config-templates/audit.rules-mod
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/issue /home/curt/tealeaf-svn/config-templates/issue-mod
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/security/limits.conf /home/curt/tealeaf-svn/config-templates/limits-mod.conf
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/config-edit-equal.pl /etc/selinux/config /home/curt/tealeaf-svn/config-templates/selinux-config-mod
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/login.defs /home/curt/tealeaf-svn/config-templates/login.defs-mod
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/pam.d/system-auth /home/curt/tealeaf-svn/config-templates/system-auth-mod
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/pam.d/system-auth /home/curt/tealeaf-svn/config-templates/system-auth-mod
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/ssh/sshd_config /home/curt/tealeaf-svn/config-templates/sshd_config-mod
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/modprobe.conf /home/curt/tealeaf-svn/config-templates/modprobe-mod
+1,15,30,45 * * * * /home/curt/tealeaf-svn/scripts/config-edit-equal.pl /etc/sysctl.conf /home/curt/tealeaf-svn/config-templates/sysctl-mod
+#1,15,30,45 * * * * /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/cron.allow /home/curt/tealeaf-svn/config-templates/cron.allow-mod
+1,15,30,45 * * * * /home/curt/tealeaf-svn/scripts/config-edit-tab.pl /etc/ssh/ssh_config /home/curt/tealeaf-svn/config-templates/ssh_config-mod
 
 #rhel hardening
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/services-disable.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/aide-check.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/disable-rds-cluster.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/grub-single-passwd.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/home-directory-perms.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/kernel-audit.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/ownership-permissions-config.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/ownership-permissions-scan.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/partitions.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/password-hash.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/remote-root-login.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/rsh-svr.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/selinux-devices.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/system-acct-maint.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/telnet-svr.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/os-patching.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/ntpd-svr.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/rhel-gpg-check.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/check-ldap-config.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/disable-kernel-mods.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/disable-uncommon-fs.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/enable-su-auth.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/pam-cracklib.sh
-01 05 * * 0  /home/curt/tealeaf-svn/scripts/rhel-hardening/tighten-umask.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/services-disable.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/aide-check.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/disable-rds-cluster.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/grub-single-passwd.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/home-directory-perms.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/kernel-audit.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/ownership-permissions-config.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/ownership-permissions-scan.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/partitions.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/password-hash.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/remote-root-login.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/rsh-svr.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/selinux-devices.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/system-acct-maint.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/telnet-svr.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/os-patching.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/ntpd-svr.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/rhel-gpg-check.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/check-ldap-config.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/disable-kernel-mods.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/disable-uncommon-fs.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/enable-su-auth.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/pam-cracklib.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/tighten-umask.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/suid-removal.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/gcc-check.sh
+1,15,30,45 * * * *  /home/curt/tealeaf-svn/scripts/rhel-hardening/iptables-check.sh
 

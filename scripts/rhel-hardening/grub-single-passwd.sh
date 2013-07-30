@@ -9,20 +9,23 @@
 SINGLE='SINGLE=/sbin/sushell'
 GPASS='^password'
 
-if grep -e $GPASS /etc/grub.conf; then
+if [ "$UNAME" = "Linux" ]; then
+  if grep -e $GPASS /etc/grub.conf; then
     prt "/etc/grub.conf has password"
-else
+  else
     prt "/etc/grub.conf does NOT have a password set"
-fi
+  fi
 
-if grep -e $SINGLE /etc/sysconfig/init; then
+  if grep -e $SINGLE /etc/sysconfig/init; then
     prt "/etc/sysconfig/init has $SINGLE"
-else
+  else
     prt "/etc/sysconfig/init does NOT have $SINGLE"
+  fi
+
+  if [ "$MODE" = "EXECUTE" ]; then
+    prt "No EXECUTE steps in grub-single-passwd.sh. Manually set password"
+  fi
+else
+  prt "grub-single-password.sh does not support $UNAME"
 fi
 
-if [ "$MODE" = "EXECUTE" ]; then
-  prt "No EXECUTE steps in grub-single-passwd.sh. Manually set password"
-fi
-
- 

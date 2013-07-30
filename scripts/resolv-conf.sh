@@ -3,7 +3,9 @@
 #
 #Set the inittab runlevel
 #
-. /home/curt/scripts/tealeaf-env.sh
+
+. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+
 CONF='/etc/resolv.conf'
 cp $CONF $BKPDIR.$(date +%m%d%Y)
 
