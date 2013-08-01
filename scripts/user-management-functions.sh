@@ -1,42 +1,21 @@
-for
-if ! id $USERNAME; then
-  if [ "$UNAME" == "Linux" ]; then
-    Linux $USERNAME $USERID $GROUPID $newpw
-  elif [ "$UNAME" == "AIX" ]; then
-    AIX $USERNAME $USERID $GROUPID $aixpw
-  elif [ "$UNAME" == "HP-UX" ]; then
-    HPUX $USERNAME $USERID $GROUPID $newpw
-  else
-  echo "No Match"
-  fi
-fi
-
 function Linux {
-  $USERNAME = $1;
-  $USERID = $2;
-  $GROUPID = $3;
-  $newpw = $4;
 
   if [ ! useradd -u $USERID -g $GROUPID -c "Unix Platform Support" $USERNAME ]; then
-    echo failure to create $USERNAME on `hostname` | mail curtis.carpenter@uscellular.com;
-    logger failure to create $USERNAME on `hostname`;
+    echo "Failure to create $USERNAME on $HOST" | mail $EMAIL;
+    prt "Failure to create $USERNAME on $HOST"
     exit;
   fi
   chmod 600 /etc/shadow
   sed -i "s/\(ccarp001:\).*:\(.*\)\(:0:99999:7:::\)/\1$newpw:\2\3/" /etc/shadow
   chmod 400 /etc/shadow
-  logger `date` $USERNAME password change complete
+  prt "user-management-functions.sh: $USERNAME password change complete"
 }
 
 function AIX {
-  $USERNAME = $1;
-  $USERID = $2;
-  $GROUPID = $3;
-  $aixpw = $4;
 
  if [ ! useradd -u $USERID -g $GROUPID -c "Unix Platform Support" $USERNAME ]; then
-    echo failure to create $USERNAME on `hostname` | mail curtis.carpenter@uscellular.com;
-    logger failure to create $USERNAME on `hostname`;
+    echo failure to create $USERNAME on $HOST | mail $EMAIL;
+    prt "user-management-functions.sh: failure to create $USERNAME on $HOST";
     exit;
   fi
   cp /etc/security/passwd /etc/security.bkp
@@ -47,23 +26,36 @@ function AIX {
         }" /etc/security/passwd.bkp > /etc/security/passwd
   chmod 400 /etc/security/passwd
   rm /etc/security/passwd.bkp
-  logger `date` $USERNAME password change complete
+  prt "user-management-functions.sh: $USERNAME password change complete"
 }
 
 function HPUX {
-  $USERNAME = $1;
-  $USERID = $2;
-  $GROUPID = $3;
-  $hpuxpw = $4;
 
  if [ ! useradd -u $USERID -g $GROUPID -c "Unix Platform Support" $USERNAME ]; then
-    echo failure to create $USERNAME on `hostname` | mail curtis.carpenter@uscellular.com;
-    logger failure to create $USERNAME on `hostname`;
+    echo "failure to create $USERNAME on $HOST" | mail $EMAIL;
+    prt "failure to create $USERNAME on $HOST";
     exit;
   fi
   chmod 600 /etc/passwd.nis
   sed "s/\(ccarp001:\).*:\(.*\)\(:0:99999:7:::\)/\1$hpuxpw:\2\3/" /etc/security/passwd
   chmod 400 /etc/passwd.nis
-  logger `date` $USERNAME password change complete
+  prt  "$USERNAME password change complete"
 }
+
+for user in "${USERS[@]}"; do
+    $user
+    echo "Hit user loop with: $USERNAME : $USERID : $GROUPID : $newpw"
+    if ! id $USERNAME 
+    then
+      if [ "$UNAME" = "Linux" ]; then
+        Linux
+      elif [ "$UNAME" = "AIX" ]; then
+        AIX
+      elif [ "$UNAME" = "HP-UX" ]; then
+        HPUX
+      else
+        prt "user-management-functions.sh: operating system not supported: $UNAME"
+      fi
+    fi
+done
 
