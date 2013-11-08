@@ -1,41 +1,30 @@
 
 class process {
 
-include data
-include edit
-include augeus
-
 $file = '/etc/hosts'
-$datahash.each |$key, $value| { notify("$key $value") } #end hash
-$datahash.each |$key, $value| { edit::single($key, $value, $file) } #end hash
-
-} #end hosts
-
-class data {
-
-#
-#this is the hash that holds default /etc/hosts value for the network
-#
-
 $datahash = { 	
-
-		'127.0.0.1' => 'localhost localhost.localdomain',
-		'192.168.85' => 'mngtsvr mngtsvr.carpy.net'
-
-
+		'127.0.0.1' => 'localhos',
+		'192.168.85.254' => 'mngtsvr.carpy.net'
 } #end hash
 
-} #end class
+#$datahash.each |$key, $value| { notify{ $key: message => "$key $value" } } #end hash
+$datahash.each |$key, $value| { 
 
-class edit ( $value = '', $path = '', $file = '' ) {
+augeas { $key: 
+   name => $key,
+   context => "/files/etc/hosts",
+   changes => "set *[ipaddr = $key]/canonical $value",		#[set|rm|clear] <VALUE> <PATH>, or ARRAY of commands
+   load_path => "/usr/share/augeas/lenses/"
+#   onlyif => "match $value not_include $file",
+ } #end type
+} #end each
 
-augeus { configedit: 
-   name => '/etc/hosts mod',
-   changes => "set $value \t $path",		#[set|rm|clear] <VALUE> <PATH>, or ARRAY of commands
-   incl => "$file",
-   lens => 'Host_Conf.lns',
-   onlyif => "match $value not_include $file",
-   type_check => true
+augeas { blah: 
+   name => 'blah',
+   context => '/files/etc/hosts',
+   changes => [ "set ipaddr 192.168.85.111",
+		"set canonical blah" ],		#[set|rm|clear] <VALUE> <PATH>, or ARRAY of commands
+   load_path => "/usr/share/augeas/lenses/"
  } #end type
 
 } #end class
