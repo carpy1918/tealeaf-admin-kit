@@ -20,44 +20,49 @@ my @MERGE=@BKUP;
 our $modified = '';
 our $SEPARATOR="\t";
 my $COUNT=0;
-my $debug=1;
-
+my $debug=0;
 
 #
 #Function: compareLine($$)
 #Desc: compare to configuration lines. 
 sub compareLine($$)
 {
-  my @configv=split(/\s+/,shift());
-  my @modv=split(/\s+/,shift());
+  my @configv=split(/\t|\s\s+/,shift());
+  my @modv=split(/\t|\s\s+/,shift());
   my $depth=$#configv;
   my $count=0;
   my $result=0;
 
-  return 1 if $depth < 0;
+#  return 1 if $depth == 0;
+  foreach(@configv) {
+   print "array values: $_ \n";
+  }
+  foreach(@modv) {
+   print "array values: $_ \n";
+  }
 
   if( $#configv != $#modv )
   {
-    print "compareLine: line length does not match\n";
+    print "compareLine: line length configv $#configv and modv $#modv does not match\n";
     return 1;
   }
 
-  print "In compareLine: array depth: $depth\n";
+  print "In compareLine: array depth: $depth\n" if $debug;
   for ($count=0;$count<$depth;$count++)
   {
+    print "compareLine: $configv[$count] and $modv[$count]\n";
     $return=compareValue($configv[$count],$modv[$count]);
     if($return == 0)
     { print "$count: Config values match.\n" if $debug; }
     else
-    { return 1; } #return non-matching general error
+    { print "$configv[$count] and $modv[$count] do not match\n" if $debug; return 1; } #return non-matching general error
   } #end for loop 
+
   $result=compareValue($configv[$depth],$modv[$depth]);
   if ($result==0)
   { return 0; } 
   elsif($result==1)
-  { return 1; }
-  else
-  {
+  { 
     for (my $count=0;$count<$depth;$count++)
     {
       $modified .= $configv[$count] . $SEPARATOR;
@@ -65,6 +70,8 @@ sub compareLine($$)
     $modified .= $modv[$depth];
     return 2;
   }
+  else
+  { print "compareLine: error handling $configv[$depth] and $modv[$depth]\n" if $debug; } 
 } #end compareLine
 
 #
@@ -81,21 +88,22 @@ sub compareValue($$)
   { return 1; } 
 } #end compareValue
 
-
-foreach(@MERGE)		#foreach config file entry check it against the old ones
+foreach(@MERGE)		#loop with each config file entry check it against the changefile
 {
   my $config=$_;
 #  $config =~ s/\n//g;
   my $WRITTENv=0;
   my $COUNTn=0;
-  foreach(@NEW)
+  foreach(@NEW)		#loop through changefile
   {
+    my $mod;
+    $mod=$_;
+    print "new array value: $mod\n";
     $modified='';
-    my $mod=$_;
 #    $mod =~ s/\n//g;
     #0 == match, 1 == mismatch, 2 == last config value mismatch. 
     print "COUNTn: $COUNTn. COUNT: $COUNT\n" if $debug;
-    print "Comparing line compare: $config and $mod\n" if $debug;
+    print "++++Comparing lines: $config and $mod\n";
     my $result=compareLine($config,$mod); 
     if($result==0)
     { 
@@ -131,5 +139,3 @@ foreach(@MERGE)		#print config file
 {
   print fh2 $_;
 }
-
-
