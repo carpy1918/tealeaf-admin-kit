@@ -1,69 +1,71 @@
 #!/usr/bin/perl -w
 
+use File::Copy;
+
 #
 #management of the entries in config files, insert and edit
 #
 
 my $CFILE = shift();
 my $ADDITION = shift();
-
 if(! $CFILE || ! $ADDITION)
-{ print "Bad file given on CL\nSyntax: config-edit-tab.pl <config_file> <mod_file>\n";exit; }
+{ print "Bad or no file given on CL\nSyntax: config-edit-tab.pl <config_file> <mod_file>\n";exit; }
 
-`cp $CFILE $CFILE.bkup`;
-open(fh1, "$ADDITION") or die("cannot open $ADDITION\n");
-open(fh3, "$CFILE.bkup") or die("cannot open $CFILE.bkup\n");
-open(fh2, ">$CFILE") or die("cannot open $CFILE\n");
+copy("$CFILE","$CFILE.bkup") or die("Cannot copy $CFILE:$!\n");
+open(fh1,"$ADDITION") or die("cannot open $ADDITION\n");
+open(fh3,"$CFILE.bkup") or die("cannot open $CFILE.bkup\n");
+open(fh2,">$CFILE") or die("cannot open $CFILE\n");
 my @NEW=<fh1>;
 my @BKUP=<fh3>;
 my @MERGE=@BKUP;
 our $modified = '';
 our $SEPARATOR="=";
-my $COUNT=0;
-my $debug=1;
+my $COUNT=0;		#keep track of config file entry
+my $COUNTn=0;		#keep track of change file entry
+my $debug=0;
 
 #
 #Function: compareLine($$)
-#Desc: compare to configuration lines. 
+#Desc: compare to configuration lines
 sub compareLine($$)
 {
-  my @configv=split(/\s*=\s*/,shift());
-  my @modv=split(/\s*=\s*/,shift());
-  my $depth=$#configv;
+  my @configv=split(/\s*=\s*|\s\s*=\s*/,shift());
+  my @modv=split(/\s*=\s*|\s\s*=\s\s*/,shift());
   my $count=0;
   my $result=0;
+  my $depth=0;
 
-  return 1 if $depth < 0;
-
-  if( $#configv != $#modv )
+  if($#configv!=$#modv)
   { 
-    print "compareLine: line length does not match\n" if $debug;
-    return 1;
-  }
+    print "compareLine: line length configv $#configv and modv $#modv does not match\n" if $debug; 
+    return 1; 
+  }   
 
-  print "In compareLine: array depth: $depth.\n";
-  for ($count=0;$count<$depth;$count++)
+  $depth=$#configv;
+  for($count=0;$count<$#configv;$count++)
   {
+    print "compareLine: values: $configv[$count] and $modv[$count]\n" if $debug;
     $return=compareValue($configv[$count],$modv[$count]);
     if($return == 0)
-    { print "$count: Config values match.\n" if $debug; }
+    { print "$count: $configv[$count] and $modv[$count] Cvalues match.\n" if $debug; }
     else
-    { return 1; } #return non-matching general error
+    { print "$configv[$count] and $modv[$count] do not match\n" if $debug; return 1; } #return non-matching general error
   } #end for loop 
+
   $result=compareValue($configv[$depth],$modv[$depth]);
   if ($result==0)
   { return 0; } 
-  elsif ($result==1)
-  { return 1; }
-  else
-  {
-    for (my $count=0;$count<$depth;$count++)
+  elsif($result==1)
+  { 
+    for ($count=0;$count<$depth;$count++)
     {
       $modified .= $configv[$count] . $SEPARATOR;
     }
     $modified .= $modv[$depth];
     return 2;
   }
+  else
+  { print "compareLine: error handling $configv[$depth] and $modv[$depth]\n" if $debug; } 
 } #end compareLine
 
 #
@@ -71,67 +73,55 @@ sub compareLine($$)
 #Desc: compare two string field values
 sub compareValue($$)
 {
-  my $orig = shift();
-  my $replace = shift();
+  my $orig=shift();
+  my $replace=shift();
   
-  if( $orig eq '' || $replace eq '' )
-  { return 1; }
+  return 0 if( "$orig" eq "$replace");
 
-  if( $orig eq $replace)
-  { return 0; }
-  else 
-  { return 1; } 
+  return 1;  
 } #end compareValue
 
-
-foreach(@MERGE)		#foreach config file entry check it against the old ones
+foreach(@MERGE)		#loop with each config file entry check it against the changefile
 {
   my $config=$_;
-#  $config =~ s/\n//g;
-  my $WRITTENv=0;
-  my $COUNTn=0;
-  foreach(@NEW)
+  chomp($config);
+  foreach(@NEW)		#loop through changefile
   {
-    $modified='';
     my $mod=$_;
-#    $mod =~ s/\n//g;
+    chomp($mod);
+    $modified='';
     #0 == match, 1 == mismatch, 2 == last config value mismatch. 
-    print "COUNTn: $COUNTn. COUNT: $COUNT\n" if $debug;
-    print "Comparing line compare: $config and $mod\n" if $debug;
+    print "main: comparing lines: $config and $mod\n" if $debug;
     my $result=compareLine($config,$mod); 
     if($result==0)
     { 
-      print "COUNTn: $COUNTn. COUNT: $COUNT\n" if $debug;
-      print "config lines match erasing new line $COUNTn:\nNEW: (erase) $NEW[$COUNTn] and MERGE: (orig) $MERGE[$COUNT]\n" if $debug;
+      print "main: config line match: erasing new line at $COUNTn: $NEW[$COUNTn]\n" if $debug;
       $NEW[$COUNTn]='';
     }
     elsif($result==2)
     { 
-      print "COUNTn: $COUNTn. COUNT: $COUNT\n" if $debug;
-      print "$config and $mod merge. Going to use: $modified\n" if $debug;
-      $MERGE[$COUNT]=$modified . "\n";
-      $NEW[$COUNTn]='';
+      print "main: config line edit: $config : $mod merge. Going to use: $modified\n" if $debug;
+      $MERGE[$COUNT]=$modified . "\n";		#update config value
+      $NEW[$COUNTn]='';				#erase change file value
     }
     else
-    { print "No match.\n" if $debug; }
+    { print "main: config line mismatch.\n" if $debug; }
     $COUNTn++;
+    print "NEW END: COUNTn: $COUNTn COUNT: $COUNT\n" if $debug;
   } #end foreach NEW 
   $COUNT++;
-  print "End of MERGE loop.\n" if $debug;
-  print "COUNTn: $COUNTn. COUNT: $COUNT\n" if $debug;
+  $COUNTn=0;
+  print "MERGE END: COUNTn: $COUNTn COUNT: $COUNT\n" if $debug;
 } #foreach MERGE
 
-print "\nExiting compare and entering insert mode\n" if $debug;
 foreach(@NEW)
 {
-  my $new = $_;
+  my $new=$_;
   next if $new eq '';
   print "Adding $new to MERGE\n" if $debug;
   push(@MERGE,$new);
 }
 foreach(@MERGE)		#print config file
-{
-  print fh2 $_;
+{ 
+  print fh2 $_; 
 }
-
-
