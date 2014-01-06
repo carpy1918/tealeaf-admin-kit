@@ -12,10 +12,11 @@ TEALEAF_HOME="/home/curt/tealeaf-svn/"
 MODE=`$TEALEAF_HOME/scripts/management-mode.sh`
 HOST=`hostname`
 BKPDIR='/tmp/tealeaf/'
-DNSSERVERS=('192.168.85.2')
+DNSSERVERS=('192.168.159.1')
+SUAUTH=("curt" "admin")
 DNSDOMAIN='tealeaf.com'
-HOSTS=('192.168.85.2\tgateway' '192.168.85.130\tmngt-svr' '192.168.85.134\tubuntu-node' '192.168.85.138\topensuse-12-node' '192.168.85.139\tcentos-6-node')
-EMAIL='curtis@carpy.net'
+HOSTS=("192.168.159.1 gateway" "192.168.159.128  mngt-svr" "192.168.159.134  ubuntu-node" "192.168.159.138  opensuse-12-node" "192.168.159.139  centos-6-node")
+EMAIL="curtis@carpy.net"
 TEALOG="/tmp/tealeaf.log"
 LOGZIP='3'
 LOGDEL='30'
@@ -27,7 +28,7 @@ function prt
 #print to log file funtion
 {
   echo "$DATE: $HOST $1" >> $TEALOG
-  logger -t "$HOST tealeaf" -- "$1"
+  logger -t "tealeaf" -- "$1"
 } #end prt
 
 function running_process
