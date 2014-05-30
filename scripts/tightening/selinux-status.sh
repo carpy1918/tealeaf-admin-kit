@@ -6,6 +6,7 @@
 
 . /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
 
+if [ -f /usr/sbin/sestatus ];then
 SESTATUS=`sestatus | grep status | awk '{print $3}'`
 SEMODE=`sestatus | grep "Current mode" | awk '{print $3}'`
 SEFILEMODE=`sestatus | grep "Mode from config file" | awk '{print $3}'`
@@ -22,3 +23,6 @@ for i in `/usr/sbin/semanage login -l`;do
   fi
 done
 
+else
+  prt "SELINUX: not installed"
+fi
