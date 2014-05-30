@@ -27,7 +27,7 @@ else
   else
     prt "AIDE: $MODE: aide is NOT installed"
     if [ "$MODE" = "EXECUTE" ]; then
-      apt-get install aide
+      yum install aide
       prt "AIDE: $MODE: Mode is EXECUTE and aide has been installed"
     fi
   fi
