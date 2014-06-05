@@ -13,6 +13,7 @@ SEFILEMODE=`sestatus | grep "Mode from config file" | awk '{print $3}'`
 
 prt "SELINUX: Running Status: $SESTATUS"
 prt "SELINUX: Running Mode: $SEMODE"
+
 if [ ! "$SEMODE" = "$SEFILEMOD" ];then
  prt "SELINUX: Running mode and config file mode mismatch"
 fi
