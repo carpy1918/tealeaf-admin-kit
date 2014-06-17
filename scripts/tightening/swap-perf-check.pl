@@ -12,9 +12,9 @@ my $host=`hostname`;
 chomp($host);
 
 if( ! -f "/usr/bin/sar")
-{  
+{
   print "DSK-PERF-CHECK: sar not installed\n";
-  exit; 
+  exit;
 }
 
 foreach my $d (`sar -d | awk '{print \$4}'`)
@@ -32,7 +32,7 @@ foreach my $d (@swapdata)
 }
 
 if ( $count > 20 )
-{  print "SWAP-PERF-CHECK: IN WARNING: $count found\n"; }
+{ print "SWAP-PERF-CHECK: IN WARNING: $count found\n"; }
 elsif($count > 30)
 { print "SWAP-PERF-CHECK: IN ALERT: $count found\n"; }
 else
@@ -54,9 +54,8 @@ foreach my $d (@swapdata)
 }
 
 if ( $count > 20 )
-{  print "SWAP-PERF-CHECK: OUT WARNING: $count found\n"; }
+{ print "SWAP-PERF-CHECK: OUT WARNING: $count found\n"; }
 elsif($count > 30)
 { print "SWAP-PERF-CHECK: OUT ALERT: $count found\n"; }
 else
 { print "SWAP-PERF-CHECK: OUT count: $count\n"; }
-
