@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 #
-#check the performance of swap using sar
+#check for ip traffic errors using sar
 #
 
 my $debug=0;
