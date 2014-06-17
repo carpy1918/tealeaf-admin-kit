@@ -5,6 +5,7 @@
 #
 
 my $debug=0;
+my $max=1950;
 my $count=0;
 my %diskdata;
 my $host=`hostname`;
@@ -32,7 +33,7 @@ foreach my $k (keys %diskdata)
 {
   if ($diskdata{$k} !~ "rdKb/s" && $diskdata{$k} !~ "")
   {  
-    if ($diskdata{$k} > 1950 )
+    if ($diskdata{$k} > $max )
     {
       $count++;
     }
@@ -63,7 +64,7 @@ foreach my $k (keys %diskdata)
 {
   if ($diskdata{$k} !~ "rdKb/s" && $diskdata{$k} !~ "")
   {  
-    if ($diskdata{$k} > 1950)
+    if ($diskdata{$k} > $max)
     {
       $count++;
     }
