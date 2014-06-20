@@ -10,22 +10,20 @@ if [ "$MODE" = "MONITOR" ]; then
   if [ "$UNAME" = "Linux" ]; then
     yum check-update | awk '{print $1}' > /tmp/blah.update
     while read line; do
-      prt "patch found: $line"
-      echo "patch found: $line"
+      prt "OS-PATCHING: patch found: $line"
     done < /tmp/blah.update
     rm -f /tmp/blah.update
   elif [ "$UNAME" = "Debian" ]; then
     value=`aptitude -s safe-upgrade`
-    prt "$value"
+    prt "OS-PATCHING: $value"
   else
-    prt "Unknown OS $UNAME found in os-patching" 
-    echo "Unknown OS $UNAME found in os-patching" 
+    prt "OS-PATCHING: Unknown OS $UNAME found in os-patching" 
   fi
 else
     for i in `cat $TEALEAF_HOME/config-templates/os-base-packages.txt`; do
-      prt "Upgrading, or attempting to, $i"
+      prt "OS-PATCHING: Upgrading, or attempting to, $i"
       upgrade_pkg $i
     done
-    prt "Updated basic core rpms. Printing the patches pending if not Debian."
+    prt "OS-PATCHING: Updated basic core rpms. Printing the patches pending if not Debian."
 fi
 

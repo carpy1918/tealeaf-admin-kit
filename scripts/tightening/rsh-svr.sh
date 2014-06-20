@@ -11,10 +11,10 @@ if [ "$MODE" = "EXECUTE" ]; then
 else
   if [ "$UNAME" = "Linux" ]; then
     value=`rpm -qa | grep rsh-server`
-      prt "Installed: $value Should remove this."
+      prt "RSH-SVR: Installed: $value Should remove this."
   elif [ "$UNAME" = "Debian" ]; then
     value=`dpkg --get-selections | grep rsh`
-      prt "Installed: $value Should remove this."
+      prt "RSH-SVR: Installed: $value Should remove this."
   fi  
 fi
 
