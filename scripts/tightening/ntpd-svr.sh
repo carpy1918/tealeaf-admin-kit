@@ -5,7 +5,7 @@
 #
 
 . /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
-MODE="EXECUTE"
+
   if running_process /usr/sbin/ntpd; then
     prt "ntpd is running"
     exit

@@ -5,7 +5,7 @@
 #
 
 . /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
-MODE='EXECUTE'
+
 VALUE=`grep pam_wheel /etc/pam.d/su`
 
 if [ "$MODE" = "EXECUTE" ]; then
@@ -27,5 +27,4 @@ if [ "$MODE" = "EXECUTE" ]; then
 else
   prt "enable-su-auth: $MODE: $VALUE"
 fi
-
 
