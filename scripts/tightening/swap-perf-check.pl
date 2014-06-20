@@ -5,6 +5,8 @@
 #
 
 my $debug=0;
+my $warn=20;
+my $error=30;
 my $max=1000;
 my $count=0;
 my @swapdata;
@@ -13,7 +15,7 @@ chomp($host);
 
 if( ! -f "/usr/bin/sar")
 {
-  print "DSK-PERF-CHECK: sar not installed\n";
+  print "SWAP-PERF-CHECK: sar not installed\n";
   exit;
 }
 
@@ -31,9 +33,9 @@ foreach my $d (@swapdata)
     }
 }
 
-if ( $count > 20 )
+if ( $count > $warn)
 { print "SWAP-PERF-CHECK: IN WARNING: $count found\n"; }
-elsif($count > 30)
+elsif($count > $error)
 { print "SWAP-PERF-CHECK: IN ALERT: $count found\n"; }
 else
 { print "SWAP-PERF-CHECK: IN count: $count\n"; }
@@ -53,9 +55,9 @@ foreach my $d (@swapdata)
     }
 }
 
-if ( $count > 20 )
+if ( $count > $warn)
 { print "SWAP-PERF-CHECK: OUT WARNING: $count found\n"; }
-elsif($count > 30)
+elsif($count > $error)
 { print "SWAP-PERF-CHECK: OUT ALERT: $count found\n"; }
 else
 { print "SWAP-PERF-CHECK: OUT count: $count\n"; }

@@ -6,6 +6,8 @@
 
 my $debug=0;
 my $max=1950;
+my $warn=20;
+my $error=30;
 my $count=0;
 my %diskdata;
 my $host=`hostname`;
@@ -40,9 +42,9 @@ foreach my $k (keys %diskdata)
   }
 }
 
-if ( $count > 20 )
+if ( $count > $warn )
 {  print "DISK-PERF-CHECK: READ WARNING: $count found\n"; }
-elsif($count > 30)
+elsif($count > $error)
 { print "DISK-PERF-CHECK: READ ALERT: $count found\n"; }
 else
 { print "DISK-PERF-CHECK: READ count: $count\n"; }
@@ -71,9 +73,9 @@ foreach my $k (keys %diskdata)
   }
 }
 
-if ( $count > 20 )
+if ( $count > $warn)
 {  print "DISK-PERF-CHECK: WRITE WARNING: $count found\n"; }
-elsif($count > 30)
+elsif($count > $error)
 { print "DISK-PERF-CHECK: WRITE ALERT: $count found\n"; }
 else
 { print "DISK-PERF-CHECK: WRITE count: $count\n"; }
