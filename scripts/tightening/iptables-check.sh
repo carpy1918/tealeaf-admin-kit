@@ -8,14 +8,14 @@
 
 value=`rpm -qa | grep iptables`
 if [ ! "$value" = "" ]; then
-  prt "Iptables installed: $value"
+  prt "IPTABLES: iptables installed: $value"
 fi
 
 value=`/etc/init.d/iptables status`
 if [[ ! $value =~ "not running" ]]; then
-  prt "Iptables is runnning."
+  prt "IPTABLES: iptables is runnning."
 else
-  prt "Iptables is NOT running." 
+  prt "IPTABLES: iptables is NOT running." 
 fi
 
 

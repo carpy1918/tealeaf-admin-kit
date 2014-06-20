@@ -12,7 +12,7 @@ for i in `find -H / -type d -perm /o+w`; do
     blah=1
   else
     v=`ls -ld $i`
-    prt "$v"
+    prt "OWNERSHIP-PERM-SCAN: $v"
   fi
 done
 
@@ -21,7 +21,7 @@ for i in `find -H / -type f -perm /o+w`; do
     blah=1
   else
     v=`ls -la $i`
-    prt "$v"
+    prt "OWNERSHIP-PERM-SCAN: $v"
   fi
 done 
 
@@ -31,7 +31,7 @@ for i in `find / -perm -4000`; do
     blah=1
   else
     v=`ls -la $i`
-    prt "$v"
+    prt "OWNERSHIP-PERM-SCAN: $v"
   fi
 done 
 
@@ -40,7 +40,7 @@ for i in `find / -perm -2000`; do
     blah=1
   else
     v=`ls -la $i`
-    prt "$v"
+    prt "OWNERSHIP-PERM-SCAN: $v"
   fi
 done 
 
@@ -50,7 +50,7 @@ for i in `find / -nogroup`; do
     blah=1
   else
     v=`ls -la $i`
-    prt "$v"
+    prt "OWNERSHIP-PERM-SCAN: $v"
   fi
 done 
 
@@ -59,6 +59,6 @@ for i in `find / -nouser`; do
     blah=1
   else
     v=`ls -la $i`
-    prt "$v"
+    prt "OWNERSHIP-PERM-SCAN: $v"
   fi
 done 

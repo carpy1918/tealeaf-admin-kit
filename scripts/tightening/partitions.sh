@@ -17,45 +17,45 @@ for i in "${partitions[@]}"; do
 
   while read dev mount type attr dump fsck; do
     if [ "$mount" = "$i" ]; then
-      prt "$i partition found."
+      prt "PARTITIONS: $i partition found."
       found=1
 
 
       if [[ "$attr" =~ "/nosuid/" ]]; then
-	prt "$mount is nosuid: $attr"
+	prt "PARTITIONS: $mount is nosuid: $attr"
       else
 	if [ "$mount" != "/usr" ]; then 
-	  prt "$mount is NOT nosuid: $attr"
+	  prt "PARTITIONS: $mount is NOT nosuid: $attr"
 	fi
       fi
 
       if [[ "$attr" =~ "/nodev/" ]]; then
-	prt "$mount is nodev: $attr"
+	prt "PARTITIONS: $mount is nodev: $attr"
       else
 	if [ "$mount" != "/" ]; then 
-	  prt "$mount is NOT nodev: $attr"
+	  prt "PARTITIONS: $mount is NOT nodev: $attr"
 	fi
       fi
 
       if [ "$fsck" != "1" ]; then
-  	prt "$mount is NOT fsck enabled: $fsck"
+  	prt "PARTITIONS: $mount is NOT fsck enabled: $fsck"
       fi
     else
       blah=1
     fi
 
     if [ "$dev" = "cdrom" ]; then
-      prt "$dev found."
+      prt "PARTITIONS: $dev found."
       if [ "$attr" =~ "/noexec/" && "$attr" =~ "/nodev/" && "$attr" =~ "/nosuid/" ]; then
-        prt "$dev has noexec, nodev, and nosuid"
+        prt "PARTITIONS: $dev has noexec, nodev, and nosuid"
       else
-        prt "$dev does NOT have noexec, nodev, and nosuid"
+        prt "PARTITIONS: $dev does NOT have noexec, nodev, and nosuid"
       fi
     fi
   done < $config
 
   if [ ! $found = 1 ]; then
-    prt "$i partition not found"
+    prt "PARTITIONS: $i partition not found"
   fi
 
 done

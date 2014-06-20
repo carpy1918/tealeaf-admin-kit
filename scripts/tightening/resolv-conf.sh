@@ -8,15 +8,15 @@
 CONF='/etc/resolv.conf'
 cp $CONF /tmp/resolv.conf.bkup
 
-prt "$CONF configuration check"
+prt "RESOLV: $CONF configuration check"
 
 if [ -f $CONF ]; then
 
     if grep $DNSDOMAIN $CONF > /dev/null
     then 
-      prt "DNS Domain: $DNSDOMAIN found in $CONF"
+      prt "RESOLV: DNS Domain: $DNSDOMAIN found in $CONF"
     else
-      prt "DNS Domain: $DNSDOMAIN NOT found in $CONF"
+      prt "RESOLV: DNS Domain: $DNSDOMAIN NOT found in $CONF"
       if [ "$MODE" = "EXECUTE" ]; then
         echo "search $DNSDOMAIN" >> $CONF
       fi
@@ -24,9 +24,9 @@ if [ -f $CONF ]; then
   for i in "${DNSSERVERS[@]}" ; do
     if grep $i $CONF > /dev/null
     then 
-      prt "$i found in $CONF"
+      prt "RESOLV: $i found in $CONF"
     else
-      prt "$i NOT found in $CONF"
+      prt "RESOLV: $i NOT found in $CONF"
       if [ "$MODE" = "EXECUTE" ]; then
         echo "nameserver $i" >> $CONF
       fi
@@ -34,6 +34,6 @@ if [ -f $CONF ]; then
   done #end for
 
 else
-  prt "WARN: $CONF does not exist - resolv-conf.sh."
+  prt "RESOLV: WARN: $CONF does not exist - resolv-conf.sh."
 fi 
 

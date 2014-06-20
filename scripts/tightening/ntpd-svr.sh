@@ -7,20 +7,20 @@
 . /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
 
   if running_process /usr/sbin/ntpd; then
-    prt "ntpd is running"
+    prt "NTPD: ntpd is running"
     exit
   elif [ "$MODE" = "MONITOR" ]; then
     if [ -f /etc/init.d/ntpd ]; then
-      prt "ntpd installed but not running"
+      prt "NTPD: ntpd installed but not running"
     else
-      prt "ntpd not installed"
+      prt "NTPD: ntpd not installed"
     fi
   elif [ "$MODE" = "EXECUTE" ]; then
     if [ -f /etc/init.d/ntpd ]; then
       start_process ntpd
-      prt "ntpd start executed"
+      prt "NTPD: ntpd start executed"
     else
-      prt "ntpd not found. attempting install and start"
+      prt "NTPD: ntpd not found. attempting install and start"
       if [ "$UNAME" = "Linux" ]; then
         install_pkg ntpd
         start_process ntpd
@@ -28,10 +28,10 @@
         install_pkg ntp
         start_process ntp
       else
-        prt "OS $UNAME not supported in ntpd-server.sh"
+        prt "NTPD: OS $UNAME not supported in ntpd-server.sh"
       fi
     fi
   else
-    prt "ntpd-svr.sh error"
+    prt "NTPD: ntpd-svr.sh error"
   fi 
 

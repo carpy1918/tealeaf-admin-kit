@@ -12,7 +12,7 @@ RUNLEVEL=`runlevel | awk '{print $2}'`
 while read svc; do
   if [ "$MODE" = "EXECUTE" ]; then
     stop_process $svc
-    prt "$svc is turned off"
+    prt "SERVICES-DISABLE: $svc is turned off"
     if [ $UNAME = "Linux" ]; then
       chkconfig $svc off
     else
