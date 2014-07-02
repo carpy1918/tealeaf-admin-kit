@@ -4,7 +4,7 @@
 #keep user account password up-to-date
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 USERS=()	#declare array
 
@@ -20,7 +20,7 @@ do
       USERS+=("\". $TEALEAF_HOME/users-by-server/$server/$user\"")
     done
 
-    echo -e "#!/bin/bash\n\n. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh\nCONF='/etc/passwd'" > user-management.sh
+    echo -e "#!/bin/bash\n\n. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh\nCONF='/etc/passwd'" > user-management.sh
     echo -e "cp \$CONF \$CONF.bkup\nmv \$CONF.bkup /tmp/\nUNAME=`uname`" >> user-management.sh
     echo -e "###" >> user-management.sh
     echo >> user-management.sh

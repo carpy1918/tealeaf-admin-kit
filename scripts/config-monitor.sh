@@ -4,7 +4,7 @@
 #monitor tealeaf config files for changes
 #
 
-. /home/curt/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 hashfile="$TEALEAF_HOME/md5sum/config-hash.txt"
 ffound=0	#file found
 hfound=0	#hash found

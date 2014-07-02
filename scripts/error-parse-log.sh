@@ -4,7 +4,7 @@
 #grab error messages from LOG
 #
 
-. /home/curt/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 LOGF=$1
 ARCHIVE="$HOME/log-data/error-data-$(date +%m%d%Y).log"
 

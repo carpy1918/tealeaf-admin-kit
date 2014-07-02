@@ -4,7 +4,7 @@
 #syslog config and make sure logs are getting audited
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 FLAG=0
 

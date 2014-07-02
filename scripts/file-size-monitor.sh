@@ -4,7 +4,7 @@
 #monitor/clean file > size
 #
 
-. /home/curt/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 DIR=$1
 MAXSIZE=$2
 

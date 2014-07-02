@@ -2,7 +2,7 @@
 
 PART=$1
 
-. /home/curt/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 if [ "$PART" = "" ]; then
 logger "clean-partition.sh - no partition given"

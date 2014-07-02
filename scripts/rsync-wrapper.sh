@@ -1,6 +1,7 @@
 #!/bin/bash
 
-. ./tealeaf-env.sh
+/home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
+
 declare -i LOOP=3
 declare -i COUNT=0
 declare -i SUCCESS=0
