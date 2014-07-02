@@ -12,23 +12,23 @@ IFS="\n"
 for i in $(grep -e "@\w\+" /etc/*syslog.conf); do
   echo $i
   if [[ $i =~ \# ]]; then
-    prt "commented remote syslog entry found: $i"
+    prt "SYSLOG: commented remote syslog entry found: $i"
   else
-    prt "remote syslog entry found: $i"
+    prt "SYSLOG: remote syslog entry found: $i"
   fi
 done
 
 for i in $(grep -e "@\w\+" /etc/*syslog.d/*); do
   echo $i
   if [[ $i =~ \# ]]; then
-    prt "commented remote syslog entry found: $i"
+    prt "SYSLOG: commented remote syslog entry found: $i"
   else
-    prt "remote syslog entry found: $i"
+    prt "SYSLOG: remote syslog entry found: $i"
   fi
 done
 
 if [[ $FLAG = 0 ]]; then
-  prt "no remote syslog entry found"
+  prt "SYSLOG: no remote syslog entry found"
 fi
 
 
