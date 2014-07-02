@@ -4,7 +4,7 @@
 #check the performance of disk partitions using sar
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 COUNT=0
 

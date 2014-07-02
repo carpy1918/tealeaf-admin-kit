@@ -4,6 +4,6 @@
 #
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 

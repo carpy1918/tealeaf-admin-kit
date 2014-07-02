@@ -4,7 +4,7 @@
 #check to see if gcc is installed
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 if [ -f /usr/bin/gcc ]; then
   prt "/usr/bin/gcc is installed."

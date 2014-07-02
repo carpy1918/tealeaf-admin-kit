@@ -4,7 +4,7 @@
 #selinux status on a server
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 if [ -f /usr/sbin/sestatus ];then
 SESTATUS=`sestatus | grep status | awk '{print $3}'`

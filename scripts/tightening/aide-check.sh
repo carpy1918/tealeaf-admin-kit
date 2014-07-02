@@ -4,7 +4,7 @@
 #aide install check and config file check
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 AIDE="/etc/aide.conf"
 

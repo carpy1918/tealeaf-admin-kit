@@ -4,7 +4,7 @@
 #disable RDS protocol used for cluster communication
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 if [ "$MODE" = "EXECUTE" ]; then
 if [ -f /etc/modprobe.conf ]; then
   if grep "install rds /bin/true" /etc/modprobe.conf

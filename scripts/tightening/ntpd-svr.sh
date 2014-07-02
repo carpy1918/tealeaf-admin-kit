@@ -4,7 +4,7 @@
 #enable ntpd
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
   if running_process /usr/sbin/ntpd; then
     prt "NTPD: ntpd is running"

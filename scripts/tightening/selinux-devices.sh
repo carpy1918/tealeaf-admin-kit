@@ -4,7 +4,7 @@
 #find unlabed (selinux label) devices
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 ls -ZR / | grep unlabeled > /tmp/blah.selinux
 while read line; do

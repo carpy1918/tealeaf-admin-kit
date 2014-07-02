@@ -4,7 +4,7 @@
 #disable remote root access
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 CONF='/etc/ssh/sshd_config'
 

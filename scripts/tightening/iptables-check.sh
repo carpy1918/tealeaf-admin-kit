@@ -4,7 +4,7 @@
 #iptables check
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 value=`rpm -qa | grep iptables`
 if [ ! "$value" = "" ]; then

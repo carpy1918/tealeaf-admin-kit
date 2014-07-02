@@ -4,7 +4,7 @@
 #check ownership and permissions
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 #find all world writable files and dirs
 for i in `find -H / -type d -perm /o+w`; do

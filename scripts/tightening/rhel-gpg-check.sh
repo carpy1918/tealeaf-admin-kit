@@ -4,7 +4,7 @@
 #verify gpg cert is installed
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 CONF='/etc/yum.conf'
 PKGSIG='^gpgcheck\s*=\s*1'

@@ -4,7 +4,7 @@
 #remove not needed suid perms
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 for i in `cat $TEALEAF_HOME/config-templates/suid-removal.txt`; do
 

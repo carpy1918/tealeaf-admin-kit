@@ -4,7 +4,7 @@
 #enable single user mode passwd and grub passwd
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 SINGLE='SINGLE=/sbin/sushell'
 GPASS='^password'

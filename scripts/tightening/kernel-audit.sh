@@ -4,7 +4,7 @@
 #enable auditing at the kernel level for apps starting before auditd
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 CONF='/etc/grub.conf'
 

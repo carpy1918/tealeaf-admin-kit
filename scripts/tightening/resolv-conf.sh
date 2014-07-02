@@ -3,7 +3,7 @@
 #
 #Set the inittab runlevel
 #
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 CONF='/etc/resolv.conf'
 cp $CONF /tmp/resolv.conf.bkup

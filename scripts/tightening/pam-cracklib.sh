@@ -4,7 +4,7 @@
 #tighten password policy with pam cracklib
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 if [ "$MODE" = "MONITOR" ]; then
   value=`grep cracklib /etc/pam.d/*`

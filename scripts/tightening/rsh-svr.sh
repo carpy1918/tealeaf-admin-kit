@@ -4,7 +4,7 @@
 #remove rsh server if installed
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 if [ "$MODE" = "EXECUTE" ]; then
   delete_pkg rsh-server

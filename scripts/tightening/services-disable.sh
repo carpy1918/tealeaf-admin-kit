@@ -4,7 +4,7 @@
 #disable services listed in services-disable.txt
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 CONF="$TEALEAF_HOME/config-templates/services-disable.txt"
 RUNLEVEL=`runlevel | awk '{print $2}'`

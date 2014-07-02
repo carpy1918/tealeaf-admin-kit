@@ -4,7 +4,7 @@
 #partion config check
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 default='rw suid dev exec auto nouser async'
 partitions=(/usr /var /var/log / /home swap /var/log/audit /tmp /var/tmp /dev/shm)
 config='/etc/fstab'

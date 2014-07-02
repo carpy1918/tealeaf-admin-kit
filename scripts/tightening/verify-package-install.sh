@@ -4,7 +4,7 @@
 #verify a package is installed on a server
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 if [ $UNAME = "Linux" ]; then
   RESULT=`rpm -qa | grep $1`

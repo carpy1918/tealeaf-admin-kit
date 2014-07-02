@@ -4,7 +4,7 @@
 #tighten umask for init and users
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 prt "TIGHTEN-UMASK: init process umask set by editing /etc/security/init"
 

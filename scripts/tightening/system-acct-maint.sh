@@ -4,7 +4,7 @@
 #system acct main - lock system accounts and other
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 for i in `cat $TEALEAF_HOME/config-templates/system-accounts.txt`; do
   if [ "$MODE" = "EXECUTE" ]; then

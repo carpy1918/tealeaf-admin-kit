@@ -4,7 +4,7 @@
 #remove telnet server if installed
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 if [[ "$MODE" = "EXECUTE" && -f /usr/sbin/in.telnetd ]]; then
   prt "TELNET-SVR: deleting telnet-server"

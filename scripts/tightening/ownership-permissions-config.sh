@@ -4,7 +4,7 @@
 #ownership and perms on config files and dirs
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 CONF='/boot/grub/grub.conf'
 if find $CONF -user root -group root -perm 600; then

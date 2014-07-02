@@ -4,7 +4,7 @@
 #enable wheel group for su auth
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 VALUE=`grep pam_wheel /etc/pam.d/su`
 

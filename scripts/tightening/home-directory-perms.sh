@@ -4,7 +4,7 @@
 #verify /home perms
 #
 
-. /home/curt/tealeaf-svn/scripts/tealeaf-env.sh
+. /home/tealeaf/tealeaf-admin-kit/scripts/tealeaf-env.sh
 
 if [ "$MODE" = "EXECUTE" ]; then
   chmod 750 /home/*
