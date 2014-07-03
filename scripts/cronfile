@@ -24,7 +24,6 @@ HOME=/home/tealeaf/tealeaf-admin-kit/scripts/
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/config-edit-equal.pl /etc/selinux/config /home/tealeaf/tealeaf-admin-kit/config-templates/selinux-config-mod "\t"
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/login.defs /home/tealeaf/tealeaf-admin-kit/config-templates/login.defs-mod "\t"
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/pam.d/system-auth /home/tealeaf/tealeaf-admin-kit/config-templates/system-auth-mod "\t"
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/pam.d/system-auth /home/tealeaf/tealeaf-admin-kit/config-templates/system-auth-mod "\t"
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/ssh/sshd_config /home/tealeaf/tealeaf-admin-kit/config-templates/sshd_config-mod "\t"
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/modprobe.conf /home/tealeaf/tealeaf-admin-kit/config-templates/modprobe-mod "\t"
 1,15,30,45 * * * * /home/tealeaf/tealeaf-admin-kit/scripts/config-edit-equal.pl /etc/sysctl.conf /home/tealeaf/tealeaf-admin-kit/config-templates/sysctl-mod "\t"
