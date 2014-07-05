@@ -9,7 +9,7 @@
 CONF='/etc/hosts'
 cp $CONF /tmp/hosts.bkup
 
-prt -e "HOSTS: hosts-conf.sh: checking /etc/hosts configuration"
+prt "HOSTS: hosts-conf.sh: checking /etc/hosts configuration"
 
 if [ -f $CONF ]; then
 
@@ -19,9 +19,9 @@ if [ -f $CONF ]; then
     
     if grep -E $name $CONF > /dev/null
     then 
-      prt -e "HOSTS: $name  $ip found in $CONF"
+      prt "HOSTS: $name  $ip found in $CONF"
     else
-      prt -e "HOSTS: $name NOT found in $CONF"
+      prt "HOSTS: $name NOT found in $CONF"
       if [ "$MODE" = "EXECUTE" ]; then
         echo -e "$ip   $name" >> $CONF
       fi
@@ -30,6 +30,6 @@ if [ -f $CONF ]; then
  done #end for
 
 else
-  prt -e "HOSTS: WARN: $CONF does not exist - `hostname`"
+  prt "HOSTS: WARN: $CONF does not exist - `hostname`"
 fi 
 

@@ -3,14 +3,14 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin:/home/tealeaf/tealeaf-admin-kit/scripts/:/hom
 MAILTO=tealeafis@carpy.net
 HOME=/home/tealeaf/tealeaf-admin-kit/scripts/
 
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/user-management-master.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/file-size-monitor.sh /var/spool/mail/ 5192
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/hosts-conf.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/inittab-conf.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/monitor-partition.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/profile-setup.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/resolv-conf.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/log-auditing.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/user-management-master.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/file-size-monitor.sh /var/spool/mail/ 5192
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/hosts-conf.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/inittab-conf.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/monitor-partition.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/profile-setup.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/resolv-conf.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/log-auditing.sh
 00 * * * 0 /home/tealeaf/tealeaf-admin-kit/scripts/motd.sh
 
 #1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/aide.conf /home/tealeaf/tealeaf-admin-kit/config-templates/aide-mod "\t"
@@ -28,34 +28,35 @@ HOME=/home/tealeaf/tealeaf-admin-kit/scripts/
 #1,15,30,45 * * * * /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/ssh/ssh_config /home/tealeaf/tealeaf-admin-kit/config-templates/ssh_config-mod "\t"
 
 #tightening
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/services-disable.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/aide-check.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/disable-rds-cluster.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/grub-single-passwd.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/home-directory-perms.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/kernel-audit.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/ownership-permissions-config.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/ownership-permissions-scan.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/partitions.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/password-hash.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/remote-root-login.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/rsh-svr.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/selinux-devices.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/system-acct-maint.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/telnet-svr.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/os-patching.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/ntpd-svr.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/rhel-gpg-check.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/check-ldap-config.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/disable-kernel-mods.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/disable-uncommon-fs.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/enable-su-auth.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/pam-cracklib.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/pam-unix.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/tighten-umask.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/suid-removal.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/gcc-check.sh
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/iptables-check.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/services-disable.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/aide-check.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/disable-rds-cluster.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/grub-single-passwd.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/home-directory-perms.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/kernel-audit.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/ownership-permissions-config.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/ownership-permissions-scan.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/partitions.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/password-hash.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/remote-root-login.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/rsh-svr.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/selinux-devices.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/system-acct-maint.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/telnet-svr.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/os-patching.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/ntpd-svr.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/rhel-gpg-check.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/check-ldap-config.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/disable-kernel-mods.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/disable-uncommon-fs.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/enable-su-auth.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/pam-cracklib.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/pam-unix.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/tighten-umask.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/suid-removal.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/gcc-check.sh
+00,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/iptables-check.sh
+00,15,30,45 * * * * /home/tealeaf/tealeaf-admin-kit/scripts/tightening/disk-perf-check.pl
 
 #redhat log monitors
 #01 17 * * * /home/tealeaf/tealeaf-admin-kit/scripts/error-parse-log.sh /var/log/messages
