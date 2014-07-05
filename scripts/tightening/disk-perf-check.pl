@@ -12,7 +12,7 @@ my $count=0;
 my %diskdata;
 my $logfile='/tmp/tealeaf-disk.log';
 my $host=`hostname`;
-open(fh,$logfile);
+open(fh,"+>>".$logfile);
 
 chomp($host);
 

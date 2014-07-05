@@ -13,7 +13,7 @@ my @swapdata;
 my $host=`hostname`;
 my $logfile='/tmp/tealeaf-disk.log';
 chomp($host);
-open(fh, $logfile);
+open(fh, "+>>".$logfile);
 
 if( ! -f "/usr/bin/sar")
 {
