@@ -3,10 +3,6 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin:/home/tealeaf/tealeaf-admin-kit/scripts/:/hom
 MAILTO=tealeafis@carpy.net
 HOME=/home/tealeaf/tealeaf-admin-kit/scripts/
 
-#00 05 * * * svn update tealeaf-admin-kit/
-
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/error-parse-log.sh /var/log/messages
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/error-parse-log.sh /var/log/secure
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/user-management-master.sh
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/file-size-monitor.sh /var/spool/mail/ 5192
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/hosts-conf.sh
@@ -15,22 +11,23 @@ HOME=/home/tealeaf/tealeaf-admin-kit/scripts/
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/profile-setup.sh
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/resolv-conf.sh
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/log-auditing.sh
+00 * * * 0 /home/tealeaf/tealeaf-admin-kit/scripts/motd.sh
 
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/aide.conf /home/tealeaf/tealeaf-admin-kit/config-templates/aide-mod "\t"
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/audit/auditd.conf /home/tealeaf/tealeaf-admin-kit/config-templates/auditd-mod "\t"
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/audit/audit.rules /home/tealeaf/tealeaf-admin-kit/config-templates/audit.rules-mod "\t"
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/issue /home/tealeaf/tealeaf-admin-kit/config-templates/issue-mod "\t"
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/security/limits.conf /home/tealeaf/tealeaf-admin-kit/config-templates/limits-mod.conf "\t"
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/config-edit-equal.pl /etc/selinux/config /home/tealeaf/tealeaf-admin-kit/config-templates/selinux-config-mod "\t"
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/login.defs /home/tealeaf/tealeaf-admin-kit/config-templates/login.defs-mod "\t"
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/pam.d/system-auth /home/tealeaf/tealeaf-admin-kit/config-templates/system-auth-mod "\t"
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/ssh/sshd_config /home/tealeaf/tealeaf-admin-kit/config-templates/sshd_config-mod "\t"
-1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/modprobe.conf /home/tealeaf/tealeaf-admin-kit/config-templates/modprobe-mod "\t"
-1,15,30,45 * * * * /home/tealeaf/tealeaf-admin-kit/scripts/config-edit-equal.pl /etc/sysctl.conf /home/tealeaf/tealeaf-admin-kit/config-templates/sysctl-mod "\t"
-#1,15,30,45 * * * * /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/cron.allow /home/tealeaf/tealeaf-admin-kit/config-templates/cron.allow-mod "\t"
-1,15,30,45 * * * * /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/ssh/ssh_config /home/tealeaf/tealeaf-admin-kit/config-templates/ssh_config-mod "\t"
+#1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/aide.conf /home/tealeaf/tealeaf-admin-kit/config-templates/aide-mod "\t"
+#1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/audit/auditd.conf /home/tealeaf/tealeaf-admin-kit/config-templates/auditd-mod "\t"
+#1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/audit/audit.rules /home/tealeaf/tealeaf-admin-kit/config-templates/audit.rules-mod "\t"
+#1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/issue /home/tealeaf/tealeaf-admin-kit/config-templates/issue-mod "\t"
+#1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/security/limits.conf /home/tealeaf/tealeaf-admin-kit/config-templates/limits-mod.conf "\t"
+#1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/config-edit-equal.pl /etc/selinux/config /home/tealeaf/tealeaf-admin-kit/config-templates/selinux-config-mod "\t"
+#1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/login.defs /home/tealeaf/tealeaf-admin-kit/config-templates/login.defs-mod "\t"
+#1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/pam.d/system-auth /home/tealeaf/tealeaf-admin-kit/config-templates/system-auth-mod "\t"
+#1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/ssh/sshd_config /home/tealeaf/tealeaf-admin-kit/config-templates/sshd_config-mod "\t"
+#1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/modprobe.conf /home/tealeaf/tealeaf-admin-kit/config-templates/modprobe-mod "\t"
+#1,15,30,45 * * * * /home/tealeaf/tealeaf-admin-kit/scripts/config-edit-equal.pl /etc/sysctl.conf /home/tealeaf/tealeaf-admin-kit/config-templates/sysctl-mod "\t"
+##1,15,30,45 * * * * /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/cron.allow /home/tealeaf/tealeaf-admin-kit/config-templates/cron.allow-mod "\t"
+#1,15,30,45 * * * * /home/tealeaf/tealeaf-admin-kit/scripts/edit.pl /etc/ssh/ssh_config /home/tealeaf/tealeaf-admin-kit/config-templates/ssh_config-mod "\t"
 
-#rhel hardening
+#tightening
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/services-disable.sh
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/aide-check.sh
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/disable-rds-cluster.sh
@@ -54,17 +51,18 @@ HOME=/home/tealeaf/tealeaf-admin-kit/scripts/
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/disable-uncommon-fs.sh
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/enable-su-auth.sh
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/pam-cracklib.sh
+1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/pam-unix.sh
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/tighten-umask.sh
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/suid-removal.sh
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/gcc-check.sh
 1,15,30,45 * * * *  /home/tealeaf/tealeaf-admin-kit/scripts/tightening/iptables-check.sh
 
 #redhat log monitors
-01 17 * * * /home/tealeaf/tealeaf-admin-kit/scripts/error-parse-log.sh /var/log/messages
-01 17 * * * /home/tealeaf/tealeaf-admin-kit/scripts/error-parse-log.sh /var/log/secure
-01 17 * * * /home/tealeaf/tealeaf-admin-kit/scripts/error-parse-log.sh /var/log/cron
-01 17 * * * /home/tealeaf/tealeaf-admin-kit/scripts/error-parse-log.sh /var/log/maillog
-01 17 * * * /home/tealeaf/tealeaf-admin-kit/scripts/error-parse-log.sh /var/log/dmesg
+#01 17 * * * /home/tealeaf/tealeaf-admin-kit/scripts/error-parse-log.sh /var/log/messages
+#01 17 * * * /home/tealeaf/tealeaf-admin-kit/scripts/error-parse-log.sh /var/log/secure
+#01 17 * * * /home/tealeaf/tealeaf-admin-kit/scripts/error-parse-log.sh /var/log/cron
+#01 17 * * * /home/tealeaf/tealeaf-admin-kit/scripts/error-parse-log.sh /var/log/maillog
+#01 17 * * * /home/tealeaf/tealeaf-admin-kit/scripts/error-parse-log.sh /var/log/dmesg
 
 #debian log monitors
 #01 17 * * * /home/tealeaf/tealeaf-admin-kit/scripts/error-parse-log.sh /var/log/messages
