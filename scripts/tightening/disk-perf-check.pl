@@ -77,7 +77,7 @@ foreach my $k (keys %diskdata)
 }
 
 if ( $count > $warn)
-{  print fh "DISK-PERF-CHECK: WRITE WARNING: $count found\n"; }
+{ print fh "DISK-PERF-CHECK: WRITE WARNING: $count found\n"; }
 elsif($count > $error)
 { print fh "DISK-PERF-CHECK: WRITE ALERT: $count found\n"; }
 else

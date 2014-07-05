@@ -20,6 +20,17 @@ for i in `cat $log | grep $date | awk '{print $3}' | sort | uniq | grep ":"`;do
   echo "" >> $report
 done
 
+echo "DISK WARNINGS and ALERTS: " >> $report
+for i in `egrep "DISK WARNING|DISK ALERT" /tmp/tealeaf-disk.log`;do
+  echo "$i" >> $report
+done
+
+echo ""
+echo "SWAP WARNINGS and ALERTS: " >> $report
+for i in `egrep "SWAP WARNING|DISK ALERT" /tmp/tealeaf-disk.log`;do
+  echo "$i" >> $report
+done
+
 echo 'Tealeaf Ownership Permissions Scan' > $reportperm
 echo '' > $reportperm
 grep 'OWNERSHIP-PERM-SCAN:' $log | grep $(date +%m%d%Y) | sort | uniq  >> $reportperm
